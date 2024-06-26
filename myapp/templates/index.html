@@ -1,0 +1,92 @@
+<!-- <!doctype html> -->
+<!-- <html lang="en"> -->
+<!--   <head> -->
+<!--     <meta charset="UTF-8" /> -->
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+<!--     <title>Landing Page</title> -->
+<!--     <style> -->
+<!--       body { -->
+<!--         font-family: Arial, sans-serif; -->
+<!--         text-align: center; -->
+<!--       } -->
+<!--       .container { -->
+<!--         margin-top: 100px; -->
+<!--       } -->
+<!--       .btn { -->
+<!--         display: inline-block; -->
+<!--         padding: 10px 20px; -->
+<!--         margin: 10px; -->
+<!--         font-size: 16px; -->
+<!--         cursor: pointer; -->
+<!--         background-color: #007bff; -->
+<!--         color: white; -->
+<!--         border: none; -->
+<!--         border-radius: 5px; -->
+<!--         text-decoration: none; -->
+<!--       } -->
+<!--       .btn:hover { -->
+<!--         background-color: #0056b3; -->
+<!--       } -->
+<!--     </style> -->
+<!--   </head> -->
+<!--   <body> -->
+<!--     <div class="container"> -->
+<!--       <h1>Bem-vindo à Landing Page</h1> -->
+<!--       <p>Escolha uma ação:</p> -->
+<!--       <a href="{% url 'cadastro' %}" class="btn">Cadastro</a> -->
+<!--       <a href="{% url 'login' %}" class="btn">Login</a> -->
+<!--       <a href="" class="btn">Logout</a> -->
+<!--       <a href="" class="btn">CRUD</a> -->
+<!--       <a href="" class="btn">Chat</a> -->
+<!--     </div> -->
+<!--   </body> -->
+<!-- </html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        margin-top: 100px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% if user.is_authenticated %}
+      <h1>{{username}}, Bem-vindo à Landing Page</h1>
+      <p>Escolha uma ação:</p>
+      <a href="{% url 'cadastro' %}" class="btn">Cadastro</a>
+      <a href="{%url 'logout'%}" class="btn">Logout</a>
+      <a href="{%url 'crud'%}" class="btn">CRUD</a>
+      <a href="#" class="btn">Chat</a>
+      {% else %}
+      <h1>Bem-vindo à Landing Page</h1>
+      <a href="{% url 'cadastro' %}" class="btn">Cadastro</a>
+      <a href="{% url 'login' %}" class="btn">Login</a>
+      {% endif %}
+    </div>
+  </body>
+</html>
